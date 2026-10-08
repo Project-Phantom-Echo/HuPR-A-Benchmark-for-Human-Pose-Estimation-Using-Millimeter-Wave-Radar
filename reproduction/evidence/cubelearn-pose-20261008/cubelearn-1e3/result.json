@@ -1,0 +1,27 @@
+{
+  "arm": "cubelearn-1e3",
+  "test": {
+    "epoch": 9,
+    "loss": 0.015845874779754215,
+    "AP": 0.5905892521739473,
+    "AP50": 0.9326890130411762,
+    "AP75": 0.6599552406985967,
+    "samples": 12600
+  },
+  "selected_validation": {
+    "loss": 0.013593259838128847,
+    "AP": 0.7245793847773837,
+    "AP50": 0.9284869991570145,
+    "AP75": 0.8557476158610954,
+    "samples": 12600
+  },
+  "completed_epochs": 10,
+  "selected_epoch": 9,
+  "completed_epoch_training_seconds": 7986.956605856074,
+  "completed_epoch_validation_seconds": 849.7626642560354,
+  "best_checkpoint_sha256": "6de2c4a3880fc675c82d9af3a439ae550ef9ac45fb624198ccc8482866119a9c",
+  "latest_checkpoint_sha256": "4d9255a878226444c3cc5e70addf230b9635a75f973518ee9858c53cbf807647",
+  "test_predictions_sha256": "175f5cdb651613f05bad0a223b9b012a47f4a925053c583b9dc9ee471ec1fa2c",
+  "source_hashes_verified": true,
+  "test_image_ids_verified": true
+}

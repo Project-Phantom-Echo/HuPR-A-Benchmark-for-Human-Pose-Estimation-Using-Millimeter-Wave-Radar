@@ -1,0 +1,33 @@
+{
+  "arguments": {
+    "mode": "train",
+    "raw_root": "/mnt/weka/fgeikyan/mmwave_data/hupr",
+    "gt_root": "/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/data",
+    "cubelearn_root": "/mnt/weka/fgeikyan/rf-perception-papers/cubelearn",
+    "output": "/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/cubelearn-1e3",
+    "lpp_lr": "0.001",
+    "lr": "0.0003",
+    "batch_size": "8",
+    "workers": "8",
+    "epochs": "2",
+    "seed": "0",
+    "resume": "False",
+    "benchmark_steps": "30"
+  },
+  "source_sha256": {
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/model.py": "9d00c9de4582ab9f6cf4db87c78796b3a537a3ff23c67aff7a59c989326d4d85",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/data.py": "692ecbf54f711009e3f1f946a2470a53dcbf4ede8ae50afdefc58671a89ce304",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/common.py": "ff1ad6f5d3d79bd36f1337806a542483bc6bde74de168d29f2c9e3110fa8a3bb",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/run.py": "167bfe02bc295695078c686c20ecdb5c032ac9132347be8fb9beac3c2c7f13b8",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/check.py": "944c3d50d298eebb34092ea7de82f36e0d01d8d9a3fdee50ec9fa1bd56635914",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/config/mscsa_prgcn.yaml": "3fbb65563fe91537e4b7fe0a68446cd1b9767b3c2a3da929c3f10dda6f923a80",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/misc/utils.py": "299813e86a8cfd3423421cfb555f2279b21e11f9fdcf8d81aefbae6da0a6f841",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/misc/coco.py": "3b258dda01b8873e036a95617c6ba0ae9a167a86720c6b95cc12478e43005f77",
+    "/mnt/weka/fgeikyan/rf-perception-papers/hupr/misc/cocoeval.py": "1e6df36bfde187d8b0e7df3623b327276de40742186696b5b44806a84bfef35b",
+    "/mnt/weka/fgeikyan/rf-perception-papers/cubelearn/network.py": "13ab2fe69b3e98148f825873d190cb01308ebfa05f594097c0f31c05d12e8ceb",
+    "/mnt/weka/fgeikyan/rf-perception-papers/cubelearn/network_har.py": "98683b1ba4089d539419c8a1285a0ad6e879045c94747199ccbdf258ad8cdff7"
+  },
+  "torch": "2.1.0+cu121",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "protocol": "cubelearn-pose-v1"
+}

@@ -1,0 +1,56 @@
+Parameters: 6077262 trainable: 5993294
+epoch=1 batch=0/14475 loss=0.689931
+epoch=1 batch=500/14475 loss=0.022251
+epoch=1 batch=1000/14475 loss=0.022381
+epoch=1 batch=1500/14475 loss=0.020961
+epoch=1 batch=2000/14475 loss=0.017771
+epoch=1 batch=2500/14475 loss=0.018941
+epoch=1 batch=3000/14475 loss=0.017634
+epoch=1 batch=3500/14475 loss=0.018079
+epoch=1 batch=4000/14475 loss=0.015880
+epoch=1 batch=4500/14475 loss=0.017043
+epoch=1 batch=5000/14475 loss=0.017397
+epoch=1 batch=5500/14475 loss=0.016286
+epoch=1 batch=6000/14475 loss=0.016670
+epoch=1 batch=6500/14475 loss=0.015228
+epoch=1 batch=7000/14475 loss=0.016009
+epoch=1 batch=7500/14475 loss=0.016255
+epoch=1 batch=8000/14475 loss=0.017340
+epoch=1 batch=8500/14475 loss=0.015699
+epoch=1 batch=9000/14475 loss=0.015428
+epoch=1 batch=9500/14475 loss=0.015036
+epoch=1 batch=10000/14475 loss=0.015121
+epoch=1 batch=10500/14475 loss=0.015372
+epoch=1 batch=11000/14475 loss=0.016592
+epoch=1 batch=11500/14475 loss=0.014434
+epoch=1 batch=12000/14475 loss=0.015446
+epoch=1 batch=12500/14475 loss=0.014175
+epoch=1 batch=13000/14475 loss=0.014640
+epoch=1 batch=13500/14475 loss=0.016003
+epoch=1 batch=14000/14475 loss=0.014573
+loading annotations into memory...
+Done (t=0.19s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.21s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *keypoints*
+DONE (t=1.49s).
+Accumulating evaluation results...
+DONE (t=0.16s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.474
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.912
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.413
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.476
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.484
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.586
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.956
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.634
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.535
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.640
+{"epoch": 1, "train_loss": 0.017957533260418136, "train_seconds": 2707.8617649003863, "val_seconds": 105.96883650822565, "validation": {"loss": 0.015725279069609112, "AP": 0.4740049692031086, "AP50": 0.9121216079115727, "AP75": 0.41325116370376147, "samples": 12600}}
+epoch=2 batch=0/14475 loss=0.014942
+[2026-10-09T01:36:01.305] error: *** JOB 318121 ON gpu09 CANCELLED AT 2026-10-09T01:36:01 DUE to SIGNAL Terminated ***

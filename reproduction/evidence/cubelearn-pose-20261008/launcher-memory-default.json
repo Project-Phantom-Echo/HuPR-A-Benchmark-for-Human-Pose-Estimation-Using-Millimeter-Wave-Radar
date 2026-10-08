@@ -1,0 +1,7 @@
+{
+  "old_default": "64G",
+  "new_default": "384G",
+  "reason": "Observed heavy raw-data file-cache eviction at64GiB;384GiB removes it",
+  "training_python_sources_changed": false,
+  "existing_slurm_allocations_unchanged": true
+}

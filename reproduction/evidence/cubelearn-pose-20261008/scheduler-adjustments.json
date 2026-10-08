@@ -1,0 +1,26 @@
+{
+  "reason": "gpu07 fully allocated and planned for higher priority jobs; avoid a hard node wait",
+  "changes": [
+    {
+      "job": 318189,
+      "ReqNodeList": "",
+      "ExcNodeList": "gpu09"
+    },
+    {
+      "job": 318190,
+      "ReqNodeList": ""
+    },
+    {
+      "job": 318176,
+      "ReqNodeList": ""
+    },
+    {
+      "job": 318197,
+      "ReqNodeList": "",
+      "ExcNodeList": "gpu09",
+      "reason": "gpu04 allocation wait; permit other nodes with384GiB",
+      "applied": false,
+      "result": "Scheduler had already started job on gpu04; update rejected as no longer pending"
+    }
+  ]
+}

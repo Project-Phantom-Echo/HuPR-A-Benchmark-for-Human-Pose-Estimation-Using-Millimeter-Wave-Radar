@@ -1,15 +1,17 @@
-# HuPR reproduction
+# HuPR reproduction and CubeLearn pose experiment
 
 ## Headline results
 
 | Source | Test AP | AP50 | AP75 |
 | --- | ---: | ---: | ---: |
-| Our 10-epoch run | 62.6 | 96.7 | 73.4 |
+| Our HuPR CSAM + PRGCN, 10 epochs | 62.6 | 96.7 | 73.4 |
 | Published paper, CSAM + PRGCN | 63.4 | 97.0 | 74.0 |
+| CubeLearn pose adaptation, learned Fourier layers | 59.06 | 93.27 | 66.00 |
+| Matched pose adaptation, fixed DFT layers | 54.03 | 91.32 | 56.77 |
 
 Paper values were verified against Table 3 of the [official WACV 2023 paper](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_HuPR_A_Benchmark_for_Human_Pose_Estimation_Using_Millimeter_Wave_WACV_2023_paper.pdf). The paper does not specify an epoch count; 200 is the released configuration's default.
 
-Test AP is **0.8 points below the paper**. We ran one training experiment: the released CSAM + PRGCN architecture, seed 0, 10 epochs, using the fast input pipeline.
+Our original HuPR test AP is **0.8 points below the paper**. For the original HuPR reproduction, we ran one training experiment: the released CSAM + PRGCN architecture, seed 0, 10 epochs, using the fast input pipeline.
 
 | Stage | Runtime | Hardware / job |
 | --- | ---: | --- |
@@ -19,9 +21,32 @@ Test AP is **0.8 points below the paper**. We ran one training experiment: the r
 
 Both jobs completed successfully; runtimes were rechecked with Slurm accounting on 2026-10-08.
 
-## Completed experiment and convergence
+## CubeLearn adapted to HuPR
 
-Best validation AP was **71.0 at epoch 9** (stored as zero-based epoch 8). The test result above uses that checkpoint. The latest resumable checkpoint is after epoch 10. There are no additional training experiments or multi-seed results to compare here; the other jobs were performance diagnostics.
+Completed 2026-10-08 (cluster accounting date). This is a **new pose adaptation**, not a reproduction of a published CubeLearn pose result. Both arms trained for ten epochs with seed 0, and each was tested once on all 12,600 official test frames. Learned Fourier layers improve test AP by **5.03 points** over the matched fixed-DFT model. The learned adaptation remains **3.54 points below** our original HuPR run. One seed does not establish a statistically reliable advantage.
+
+| Arm | Complex-layer LR | Best validation AP | Selected epoch (1-based) | Training allocations | Test allocation |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Fixed DFT | 0 | 66.50 | 8 | 2h 45m 12s | 1m 58s |
+| CubeLearn | 0.001 | 72.46 | 9 | 2h 28m 42s | 2m 08s |
+
+Each allocation used one H100 and 12 CPU cores. Training times include the selected pilot and interrupted/restarted allocations, including discarded partial-epoch work, but exclude queue wait and the separate lower-rate pilot (40m 47s). The three short throughput benchmarks cost another 1m 07s combined. Jobs ran concurrently; summing allocations is GPU resource time, not elapsed campaign wall time. [Exact accounting](reproduction/evidence/cubelearn-pose-20261008/slurm-accounting.psv) includes the historical intermediate RESIZING record for 318189; it is not an additional allocation.
+
+Initial 64-GiB jobs repeatedly evicted raw-data file-cache pages. We resumed from completed checkpoints in 384-GiB allocations, keeping the model, batches and optimizer unchanged. Recorded file-cache refaults/reclaim disappeared in the new allocation. The last five completed epochs averaged 11.4 minutes for DFT and 11.5 minutes for CubeLearn, including validation. Nodes and cache conditions also changed; this is not a controlled estimate of RAM-only speedup. The recorded instantaneous GPU-utilization sample is not average utilization or MFU.
+
+**Model and protocol.** Each radar uses a separate released CubeLearn D-A-T CNN–LSTM encoder with the six-class layer removed. Concatenated features feed a new 14-keypoint heatmap decoder (6,077,262 total parameters). Inputs are eight raw-ADC frames, 64 chirps, eight azimuth antennas and the first 128 ADC samples; no original HuPR normalized FFT cache is used. We retained the official 193/21/21 recording split, exact eight-frame alignment, Gaussian targets, 64-to-256 coordinate mapping and author COCO evaluator. Both arms use Adam, batch 8, real encoder/decoder LR 0.0003, constant rates, no weight decay, and one mean BCE heatmap loss. The original HuPR model has different architecture, input preprocessing and loss; its score is a contextual reference. The fixed/learned pair is the controlled comparison.
+
+**Selection before testing.** Two learned pilots ran for two epochs: complex LR 0.0001 reached validation AP 62.94; LR 0.001 reached 66.66. We selected 0.001 from validation only and continued it to ten total epochs. The lower-rate pilot was not tested. DFT's initial allocation was moved after epoch 1 and also continued to ten. Each test loads the checkpoint with greatest full-validation AP, breaking ties with lower validation BCE. No settings or checkpoints were chosen using test scores, and no further seeds were run.
+
+![Pose adaptation training and validation curves](reproduction/evidence/cubelearn-pose-20261008/training_curves.png)
+
+[Six fixed validation examples](reproduction/evidence/cubelearn-pose-20261008/validation_poses.png) show labels and predictions without camera images; they are qualitative examples, not additional test measurements. [Exact results and checkpoint hashes](reproduction/evidence/cubelearn-pose-20261008/results.json), [pilot selection](reproduction/evidence/cubelearn-pose-20261008/continuation-selection.json), and per-arm histories/logs are retained. Verification covered raw decoding/antenna mapping, all 600 temporal windows, DFT initialization and gradients, paired initial predictions, annotation equality, unchanged source hashes, finite checkpoints, best-validation selection and all 12,600 unique test image IDs.
+
+[Experiment design and fresh-run commands](experiments/cubelearn_pose/EXPERIMENT.md) include the required CubeLearn fork commit and environment setup. Training/evaluation sources are frozen at their recorded hashes. Existing best/latest checkpoints, optimizer/RNG state and source snapshots remain under ignored `local/cubelearn-pose-20261008/`; both arms can resume without restarting. Raw recordings remain at their unchanged configured location. The original HuPR pipeline and CubeLearn HAR model files were not changed.
+
+## Original HuPR experiment and convergence
+
+Best validation AP was **71.0 at epoch 9** (stored as zero-based epoch 8). The test result above uses that checkpoint. The latest resumable checkpoint is after epoch 10. There are no additional training runs or multi-seed results for the released HuPR architecture. The CubeLearn pose adaptation above is a separate experiment.
 
 Updated 2026-10-08. This reproduction is complete for our reporting scope: one 10-epoch, seed-0 run with the released CSAM + PRGCN model, evaluated once on the test set using the best-validation checkpoint. We are stopping here rather than extending to 200 epochs. This is a close short-run reproduction, not a multi-seed or full-duration reproduction.
 
@@ -93,6 +118,6 @@ Optional fresh 10-epoch job from any current directory, under the account invoki
 HUPR_ROOT=/mnt/weka/fgeikyan/rf-perception-papers/hupr sbatch --export=ALL /mnt/weka/fgeikyan/rf-perception-papers/hupr/reproduction/run.sbatch --run new-seed0 --epochs 10
 ```
 
-Evaluate the saved pilot checkpoint with the same job script and `--run release-seed0 --eval`, or continue with `--run release-seed0 --resume --epochs 20` (adjust job time for the intended work). No new GPU jobs were submitted during consolidation.
+Evaluate the saved pilot checkpoint with the same job script and `--run release-seed0 --eval`, or continue with `--run release-seed0 --resume --epochs 20` (adjust job time for the intended work). No new GPU jobs were submitted during the earlier folder consolidation; the subsequent CubeLearn adaptation has its own campaign.
 
 Large data, environments, predictions and checkpoints are intentionally local, not committed to Git. The fork contains the fast source, portable launcher/cache builder, setup instructions, compact results and verification evidence.

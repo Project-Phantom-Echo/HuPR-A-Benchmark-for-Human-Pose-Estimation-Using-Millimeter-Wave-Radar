@@ -1,0 +1,14 @@
+{
+  "train": {
+    "samples": 115800,
+    "all_image_ids_and_joint_coordinates_exact": true
+  },
+  "val": {
+    "samples": 12600,
+    "all_image_ids_and_joint_coordinates_exact": true
+  },
+  "test": {
+    "samples": 12600,
+    "all_image_ids_and_joint_coordinates_exact": true
+  }
+}

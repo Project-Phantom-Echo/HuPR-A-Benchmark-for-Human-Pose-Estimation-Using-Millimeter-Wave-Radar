@@ -1,0 +1,9 @@
+{
+  "job": 318197,
+  "node": "gpu04",
+  "gpu_utilization_percent": 26,
+  "memory_utilization_percent": 13,
+  "gpu_memory_MiB": 3181,
+  "power_W": 206.7,
+  "measurement": "Single nvidia-smi snapshot during training; not a run average or MFU"
+}

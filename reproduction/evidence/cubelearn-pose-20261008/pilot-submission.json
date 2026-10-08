@@ -1,0 +1,62 @@
+[
+  {
+    "name": "dft",
+    "job": "318121",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--job-name=cube-hupr-dft",
+      "--time=02:00:00",
+      "--output=/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/slurm/dft-%j.out",
+      "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/job.sbatch",
+      "--mode",
+      "train",
+      "--lpp-lr",
+      "0",
+      "--epochs",
+      "2",
+      "--output",
+      "/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/dft"
+    ]
+  },
+  {
+    "name": "cubelearn-1e4",
+    "job": "318122",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--job-name=cube-hupr-cubelearn-1e4",
+      "--time=02:00:00",
+      "--output=/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/slurm/cubelearn-1e4-%j.out",
+      "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/job.sbatch",
+      "--mode",
+      "train",
+      "--lpp-lr",
+      "0.0001",
+      "--epochs",
+      "2",
+      "--output",
+      "/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/cubelearn-1e4"
+    ]
+  },
+  {
+    "name": "cubelearn-1e3",
+    "job": "318123",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--job-name=cube-hupr-cubelearn-1e3",
+      "--time=02:00:00",
+      "--output=/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/slurm/cubelearn-1e3-%j.out",
+      "/mnt/weka/fgeikyan/rf-perception-papers/hupr/experiments/cubelearn_pose/job.sbatch",
+      "--mode",
+      "train",
+      "--lpp-lr",
+      "0.001",
+      "--epochs",
+      "2",
+      "--output",
+      "/mnt/weka/fgeikyan/rf-perception-papers/hupr/local/cubelearn-pose-20261008/cubelearn-1e3"
+    ]
+  }
+]

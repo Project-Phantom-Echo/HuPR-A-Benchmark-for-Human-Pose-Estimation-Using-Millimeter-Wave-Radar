@@ -1,0 +1,9 @@
+{
+  "mean_step_seconds": 0.06001135781407356,
+  "samples_per_second": 133.30809852337453,
+  "train_epoch_seconds": 868.6644043587148,
+  "max_memory_bytes": 901778432,
+  "steps": 30,
+  "last_loss": 0.07560934871435165,
+  "caveat": "Short shuffled raw-data benchmark; excludes validation; no checkpoint retained"
+}

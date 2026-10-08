@@ -1,0 +1,107 @@
+Parameters: 6077262 trainable: 6077262
+epoch=1 batch=0/14475 loss=0.689931
+epoch=1 batch=500/14475 loss=0.022281
+epoch=1 batch=1000/14475 loss=0.021991
+epoch=1 batch=1500/14475 loss=0.020342
+epoch=1 batch=2000/14475 loss=0.019418
+epoch=1 batch=2500/14475 loss=0.018753
+epoch=1 batch=3000/14475 loss=0.017521
+epoch=1 batch=3500/14475 loss=0.017878
+epoch=1 batch=4000/14475 loss=0.015067
+epoch=1 batch=4500/14475 loss=0.014876
+epoch=1 batch=5000/14475 loss=0.016270
+epoch=1 batch=5500/14475 loss=0.015588
+epoch=1 batch=6000/14475 loss=0.015854
+epoch=1 batch=6500/14475 loss=0.015787
+epoch=1 batch=7000/14475 loss=0.014480
+epoch=1 batch=7500/14475 loss=0.013905
+epoch=1 batch=8000/14475 loss=0.015569
+epoch=1 batch=8500/14475 loss=0.013670
+epoch=1 batch=9000/14475 loss=0.014739
+epoch=1 batch=9500/14475 loss=0.013648
+epoch=1 batch=10000/14475 loss=0.013967
+epoch=1 batch=10500/14475 loss=0.013709
+epoch=1 batch=11000/14475 loss=0.014446
+epoch=1 batch=11500/14475 loss=0.013548
+epoch=1 batch=12000/14475 loss=0.013610
+epoch=1 batch=12500/14475 loss=0.012798
+epoch=1 batch=13000/14475 loss=0.012651
+epoch=1 batch=13500/14475 loss=0.014115
+epoch=1 batch=14000/14475 loss=0.013728
+loading annotations into memory...
+Done (t=0.25s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.34s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *keypoints*
+DONE (t=2.22s).
+Accumulating evaluation results...
+DONE (t=0.20s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.594
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.966
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.670
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.573
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.620
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.684
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.983
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.806
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.632
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.738
+{"epoch": 1, "train_loss": 0.016855617635312372, "train_seconds": 1116.7463823221624, "val_seconds": 117.96790608204901, "validation": {"loss": 0.01447655873639243, "AP": 0.5936093871255648, "AP50": 0.9656906481370329, "AP75": 0.670437494903681, "samples": 12600}}
+epoch=2 batch=0/14475 loss=0.013122
+epoch=2 batch=500/14475 loss=0.012878
+epoch=2 batch=1000/14475 loss=0.013319
+epoch=2 batch=1500/14475 loss=0.012695
+epoch=2 batch=2000/14475 loss=0.012609
+epoch=2 batch=2500/14475 loss=0.013050
+epoch=2 batch=3000/14475 loss=0.012881
+epoch=2 batch=3500/14475 loss=0.012304
+epoch=2 batch=4000/14475 loss=0.012245
+epoch=2 batch=4500/14475 loss=0.013071
+epoch=2 batch=5000/14475 loss=0.012665
+epoch=2 batch=5500/14475 loss=0.012115
+epoch=2 batch=6000/14475 loss=0.011996
+epoch=2 batch=6500/14475 loss=0.012503
+epoch=2 batch=7000/14475 loss=0.011896
+epoch=2 batch=7500/14475 loss=0.012743
+epoch=2 batch=8000/14475 loss=0.012299
+epoch=2 batch=8500/14475 loss=0.012797
+epoch=2 batch=9000/14475 loss=0.011705
+epoch=2 batch=9500/14475 loss=0.012109
+epoch=2 batch=10000/14475 loss=0.011776
+epoch=2 batch=10500/14475 loss=0.011832
+epoch=2 batch=11000/14475 loss=0.012220
+epoch=2 batch=11500/14475 loss=0.012277
+epoch=2 batch=12000/14475 loss=0.011840
+epoch=2 batch=12500/14475 loss=0.011896
+epoch=2 batch=13000/14475 loss=0.012534
+epoch=2 batch=13500/14475 loss=0.012240
+epoch=2 batch=14000/14475 loss=0.011716
+loading annotations into memory...
+Done (t=0.36s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.33s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *keypoints*
+DONE (t=2.40s).
+Accumulating evaluation results...
+DONE (t=0.24s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.667
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.929
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.810
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.645
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.690
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.762
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.963
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.894
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.724
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.802
+{"epoch": 2, "train_loss": 0.012587260318427815, "train_seconds": 1071.3393401801586, "val_seconds": 123.45371464639902, "validation": {"loss": 0.013946841019131835, "AP": 0.6666173914420378, "AP50": 0.9288802451673737, "AP75": 0.8102955495514764, "samples": 12600}}

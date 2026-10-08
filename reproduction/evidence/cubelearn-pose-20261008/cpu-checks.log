@@ -1,0 +1,5 @@
+Shape of radar data: (4, 384, 256)
+PASS exact ADC decoder and virtual-antenna mapping
+PASS all 600 temporal windows and target alignment
+PASS exact paired predictions, Fourier initialization, finite nonzero complex-layer gradients
+PASS real example: input (8, 64, 8, 128) output (1, 14, 64, 64) loss 0.6899377107620239

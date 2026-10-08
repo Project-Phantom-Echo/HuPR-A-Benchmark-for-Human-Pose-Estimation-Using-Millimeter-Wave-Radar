@@ -1,0 +1,8 @@
+{
+  "new_job": "318197",
+  "cancelled_job": 318175,
+  "test_job": 318176,
+  "test_dependency": "afterok:318197",
+  "requested_memory_GiB": 384,
+  "checkpoint_epoch": 3
+}

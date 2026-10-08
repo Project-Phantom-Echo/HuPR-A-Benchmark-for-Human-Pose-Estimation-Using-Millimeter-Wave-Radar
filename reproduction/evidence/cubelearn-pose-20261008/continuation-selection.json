@@ -1,0 +1,63 @@
+{
+  "chosen": "cubelearn-1e3",
+  "criterion": "Best full-validation AP over the two learned pilots; validation loss breaks ties",
+  "pilots": {
+    "cubelearn-1e3": [
+      {
+        "epoch": 1,
+        "train_loss": 0.016855617635312372,
+        "train_seconds": 1116.7463823221624,
+        "val_seconds": 117.96790608204901,
+        "validation": {
+          "loss": 0.01447655873639243,
+          "AP": 0.5936093871255648,
+          "AP50": 0.9656906481370329,
+          "AP75": 0.670437494903681,
+          "samples": 12600
+        }
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.012587260318427815,
+        "train_seconds": 1071.3393401801586,
+        "val_seconds": 123.45371464639902,
+        "validation": {
+          "loss": 0.013946841019131835,
+          "AP": 0.6666173914420378,
+          "AP50": 0.9288802451673737,
+          "AP75": 0.8102955495514764,
+          "samples": 12600
+        }
+      }
+    ],
+    "cubelearn-1e4": [
+      {
+        "epoch": 1,
+        "train_loss": 0.017254951634735435,
+        "train_seconds": 1116.2922139484435,
+        "val_seconds": 112.04632255062461,
+        "validation": {
+          "loss": 0.015404915472581273,
+          "AP": 0.5165133666609104,
+          "AP50": 0.9133699939967871,
+          "AP75": 0.5482095144178423,
+          "samples": 12600
+        }
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.013024739192505986,
+        "train_seconds": 1078.3114141654223,
+        "val_seconds": 123.3280961997807,
+        "validation": {
+          "loss": 0.014437380833403459,
+          "AP": 0.6294073709026636,
+          "AP50": 0.9312543103049803,
+          "AP75": 0.7568074019533515,
+          "samples": 12600
+        }
+      }
+    ]
+  },
+  "total_training_epochs": 10
+}

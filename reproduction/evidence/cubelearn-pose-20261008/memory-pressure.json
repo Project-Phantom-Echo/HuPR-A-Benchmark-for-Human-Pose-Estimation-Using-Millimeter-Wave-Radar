@@ -1,0 +1,26 @@
+{
+  "job": 318189,
+  "node": "gpu04",
+  "memory_limit_bytes": 68719476736,
+  "memory_current_bytes": 68690386944,
+  "file_cache_bytes": 67443744768,
+  "workingset_refault_file": 92529956,
+  "pgscan_direct": 155041129,
+  "interpretation": "64GiB job cgroup saturated with page cache and heavy direct reclaim; larger allocation requested, speed benefit to be measured",
+  "learned_job_observation": {
+    "job": 318175,
+    "memory_current_bytes": 68708581376,
+    "file_cache_bytes": 67941638144,
+    "workingset_refault_file": 396223141,
+    "pgscan_direct": 414342927,
+    "swapcached_bytes": 127488000
+  },
+  "dft_384GiB_observation": {
+    "job": 318195,
+    "memory_current_bytes": 139909615616,
+    "file_cache_bytes": 137772068864,
+    "workingset_refault_file": 0,
+    "pgscan_direct": 0,
+    "swapcached_bytes": 0
+  }
+}

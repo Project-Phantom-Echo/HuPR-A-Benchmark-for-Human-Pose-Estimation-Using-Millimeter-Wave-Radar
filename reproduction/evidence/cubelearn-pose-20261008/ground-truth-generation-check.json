@@ -1,0 +1,15 @@
+{
+  "val": {
+    "generated_equals_used_byte_for_byte": true,
+    "sha256": "ec9eaf4df2c5fbb21fec766d11b87195fd8abad8dbadc6fb8021cbbe2271f6bc"
+  },
+  "test": {
+    "generated_equals_used_byte_for_byte": true,
+    "sha256": "de161ec545e39c1abcd1bac0cf7208158334058b0b1bc21cbc76650704d5d3c5"
+  },
+  "released_annotation_sha256": {
+    "hrnet_annot_train.json": "0829f4c42ad93b142acf7e6083442b03eb0dbb50a7ef9083b4558483190fbdf2",
+    "hrnet_annot_val.json": "b96f5fc956bf67aa48291c90f93cbaf4625009c7119b8188538fd573ad79d6a9",
+    "hrnet_annot_test.json": "eb49f4ab25e323d52cfb39b8c77f68366745e348eadebf6378bf25fc0cbddfe7"
+  }
+}

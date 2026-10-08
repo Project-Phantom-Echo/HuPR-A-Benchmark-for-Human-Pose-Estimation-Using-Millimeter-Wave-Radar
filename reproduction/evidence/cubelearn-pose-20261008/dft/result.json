@@ -1,0 +1,27 @@
+{
+  "arm": "dft",
+  "test": {
+    "epoch": 8,
+    "loss": 0.01596120452005712,
+    "AP": 0.5403320469194084,
+    "AP50": 0.913210629101388,
+    "AP75": 0.5676976442314061,
+    "samples": 12600
+  },
+  "selected_validation": {
+    "loss": 0.01416804845311812,
+    "AP": 0.6650435237687334,
+    "AP50": 0.9288550076409189,
+    "AP75": 0.7813981212153531,
+    "samples": 12600
+  },
+  "completed_epochs": 10,
+  "selected_epoch": 8,
+  "completed_epoch_training_seconds": 8651.932227453333,
+  "completed_epoch_validation_seconds": 723.8508951333351,
+  "best_checkpoint_sha256": "746c37c95def10c8faacfcb5c2277234e03e02c40021fdafafcc54806813f1fb",
+  "latest_checkpoint_sha256": "210bc38957b08d3cacbfdafcc1feac18ee3f5655652dc5d606e4f2ec863eb171",
+  "test_predictions_sha256": "b5676f3e852b7d89e25634c78f8fec1ba2c0092743bea6f3291f544600d692a6",
+  "source_hashes_verified": true,
+  "test_image_ids_verified": true
+}

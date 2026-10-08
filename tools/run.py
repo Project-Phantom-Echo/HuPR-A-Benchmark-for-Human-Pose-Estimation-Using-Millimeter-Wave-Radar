@@ -18,14 +18,14 @@ class Runner(BaseRunner):
             self.trainLoader = data.DataLoader(self.trainSet,
                                   self.cfg.TRAINING.batchSize,
                                   shuffle=True,
-                                  num_workers=cfg.SETUP.numWorkers)
+                                  num_workers=cfg.SETUP.numWorkers, pin_memory=True, prefetch_factor=2)
         else:
             self.trainLoader = [0] # an empty loader
         self.testSet = getDataset('test' if args.eval else 'val', cfg, args)
         self.testLoader = data.DataLoader(self.testSet, 
                               self.cfg.TEST.batchSize,
                               shuffle=False,
-                              num_workers=cfg.SETUP.numWorkers)
+                              num_workers=cfg.SETUP.numWorkers, pin_memory=True, prefetch_factor=2)
         self.model = HuPRNet(self.cfg).to(self.device)
         self.stepSize = len(self.trainLoader) * self.cfg.TRAINING.warmupEpoch
         LR = self.cfg.TRAINING.lr if self.cfg.TRAINING.warmupEpoch == -1 else self.cfg.TRAINING.lr / (self.cfg.TRAINING.warmupGrowth ** self.stepSize)
@@ -42,8 +42,8 @@ class Runner(BaseRunner):
             bbox = batch['bbox']
             imageId = batch['imageId']
             with torch.no_grad():
-                VRDAEmaps_hori = batch['VRDAEmap_hori'].float().to(self.device)
-                VRDAEmaps_vert = batch['VRDAEmap_vert'].float().to(self.device)
+                VRDAEmaps_hori = batch['VRDAEmap_hori'].float().to(self.device, non_blocking=True)
+                VRDAEmaps_vert = batch['VRDAEmap_vert'].float().to(self.device, non_blocking=True)
                 preds = self.model(VRDAEmaps_hori, VRDAEmaps_vert)
                 loss, loss2, preds, gts = self.lossComputer.computeLoss(preds, keypoints)
                 self.logger.display(loss, loss2, keypoints.size(0), epoch)
@@ -71,8 +71,8 @@ class Runner(BaseRunner):
                 self.optimizer.zero_grad()
                 keypoints = batch['jointsGroup']
                 bbox = batch['bbox']
-                VRDAEmaps_hori = batch['VRDAEmap_hori'].float().to(self.device)
-                VRDAEmaps_vert = batch['VRDAEmap_vert'].float().to(self.device)
+                VRDAEmaps_hori = batch['VRDAEmap_hori'].float().to(self.device, non_blocking=True)
+                VRDAEmaps_vert = batch['VRDAEmap_vert'].float().to(self.device, non_blocking=True)
                 preds = self.model(VRDAEmaps_hori, VRDAEmaps_vert)
                 loss, loss2, _, _ = self.lossComputer.computeLoss(preds, keypoints)
                 loss.backward()

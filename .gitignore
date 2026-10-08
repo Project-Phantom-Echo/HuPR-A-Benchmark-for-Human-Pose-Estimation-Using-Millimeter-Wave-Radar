@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+/local
+/logs
+/visualization
+/data
+*.pth

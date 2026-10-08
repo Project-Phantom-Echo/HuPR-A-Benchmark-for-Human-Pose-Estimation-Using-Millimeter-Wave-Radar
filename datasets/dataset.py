@@ -12,6 +12,9 @@ from pycocotools.cocoeval import COCOeval
 from datasets.base import BaseDataset, generateGTAnnot
 
 def getDataset(phase, cfg, args, random=True):
+    if os.environ.get("HUPR_NORMALIZED_CACHE"):
+        from fast_data import CachedDataset
+        return CachedDataset(phase, cfg, args, random)
     return HuPR3D_horivert(phase, cfg, args, random)
 
 class HuPR3D_horivert(BaseDataset):

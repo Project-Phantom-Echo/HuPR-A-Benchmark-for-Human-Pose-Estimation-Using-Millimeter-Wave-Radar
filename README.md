@@ -1,3 +1,5 @@
+Local reproduction: see [notes.md](notes.md) for the fast pipeline, 10-epoch results and commands.
+
 #  HuPR: A Benchmark for Human Pose Estimation Using Millimeter Wave Radar
 
 ==============================================================

@@ -1,0 +1,48 @@
+Generate GTs for single_15 for test stage
+Generate GTs for single_16 for test stage
+Generate GTs for single_38 for test stage
+Generate GTs for single_40 for test stage
+Generate GTs for single_41 for test stage
+Generate GTs for single_42 for test stage
+Generate GTs for single_17 for test stage
+Generate GTs for single_39 for test stage
+Generate GTs for single_244 for test stage
+Generate GTs for single_245 for test stage
+Generate GTs for single_246 for test stage
+Generate GTs for single_249 for test stage
+Generate GTs for single_250 for test stage
+Generate GTs for single_251 for test stage
+Generate GTs for single_252 for test stage
+Generate GTs for single_253 for test stage
+Generate GTs for single_254 for test stage
+Generate GTs for single_247 for test stage
+Generate GTs for single_248 for test stage
+Generate GTs for single_255 for test stage
+Generate GTs for single_256 for test stage
+loading annotations into memory...
+Done (t=0.23s)
+creating index...
+index created!
+==========>Test set size: 394
+==========>Load the model weight from ./logs/release-seed0, saved at epoch 8
+Loading and preparing results...
+DONE (t=0.44s)
+creating index...
+index created!
+Running per image evaluation...
+Evaluate annotation type *keypoints*
+DONE (t=1.94s).
+Accumulating evaluation results...
+DONE (t=0.31s).
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.626
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.967
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.734
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.659
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.613
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.727
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.985
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.857
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.723
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.731
+AP:	0.626	Ap .5:	0.967	AP .75:	0.734	AP (M):	0.659	AP (L):	0.613
+AR:	0.727	AR .5:	0.985	AR .75:	0.857	AR (M):	0.723	AR (L):	0.731

@@ -1,0 +1,43 @@
+{
+  "exact_equivalence": true,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "results": [
+    {
+      "loader": "original",
+      "workers": 4,
+      "measured_batches": 18,
+      "mean_wait_seconds": 0.9164748181485467,
+      "mean_compute_seconds": 0.3148636281904247,
+      "samples_per_second": 16.242488049864935,
+      "elapsed": 35.28153940662742
+    },
+    {
+      "loader": "cached",
+      "workers": 4,
+      "measured_batches": 18,
+      "mean_wait_seconds": 1.6494404561817646,
+      "mean_compute_seconds": 0.20861995882458156,
+      "samples_per_second": 10.763912647012445,
+      "elapsed": 72.81475228071213
+    },
+    {
+      "loader": "cached",
+      "workers": 16,
+      "measured_batches": 18,
+      "mean_wait_seconds": 0.06764627289440897,
+      "mean_compute_seconds": 0.20391490827831957,
+      "samples_per_second": 73.64822878450676,
+      "elapsed": 88.04495783150196
+    },
+    {
+      "loader": "cached",
+      "workers": 32,
+      "measured_batches": 18,
+      "mean_wait_seconds": 0.1072575282305479,
+      "mean_compute_seconds": 0.205411230524381,
+      "samples_per_second": 63.96545686125324,
+      "elapsed": 151.77365012466908
+    }
+  ],
+  "caveat": "Pilot sequence only; warmed filesystem cache; full-dataset throughput may differ."
+}

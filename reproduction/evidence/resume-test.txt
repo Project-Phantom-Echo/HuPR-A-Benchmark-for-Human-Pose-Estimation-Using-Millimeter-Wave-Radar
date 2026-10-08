@@ -1,0 +1,1 @@
+PASS: CPU Adam update exact after save/reload; epoch and all CPU RNG checks passed. CUDA RNG restore recorded in code but not yet independently benchmarked.

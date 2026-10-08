@@ -1,0 +1,7 @@
+2026-10-08, CPU-only; no training or GPU evaluation launched.
+run_fast.py --check: imports, evaluator hashes, annotations and all cache receipts passed after relocation.
+check_cached_loader.py: torch.equal for all returned tensors at indices 0, 100, 599, 600 and 1199 against the released loader; passed.
+Byte equality with 10-epoch pilot source: models/*.py, misc/*.py, fast_data.py, tools/run.py and resume_support.py; passed.
+Python syntax and shell syntax checks passed.
+Original checkpoints and training data were moved intact, not rewritten.
+Committed log copies have trailing whitespace stripped; original logs remain intact in the archive.

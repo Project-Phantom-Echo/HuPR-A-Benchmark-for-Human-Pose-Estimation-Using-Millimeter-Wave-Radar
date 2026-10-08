@@ -1,8 +1,6 @@
 # HuPR reproduction
 
-Updated 2026-10-08. This reproduction is complete for our reporting scope: one 10-epoch, seed-0 run with the released CSAM + PRGCN model, evaluated once on the test set using the best-validation checkpoint. We are stopping here rather than extending to 200 epochs. This is a close short-run reproduction, not a multi-seed or full-duration reproduction.
-
-## Results
+## Headline results
 
 | Source | Test AP | AP50 | AP75 |
 | --- | ---: | ---: | ---: |
@@ -11,7 +9,21 @@ Updated 2026-10-08. This reproduction is complete for our reporting scope: one 1
 
 Paper values were verified against Table 3 of the [official WACV 2023 paper](https://openaccess.thecvf.com/content/WACV2023/papers/Lee_HuPR_A_Benchmark_for_Human_Pose_Estimation_Using_Millimeter_Wave_WACV_2023_paper.pdf). The paper does not specify an epoch count; 200 is the released configuration's default.
 
-Best validation AP was 71.0 at epoch 9 (stored as zero-based epoch 8). Test AP is 0.8 points below the paper. Training job 307146 finished in 6:41:07; test job 307147 finished in 4:39. Both completed successfully. The latest checkpoint is after epoch 10; the best checkpoint is from epoch 9.
+Test AP is **0.8 points below the paper**. We ran one training experiment: the released CSAM + PRGCN architecture, seed 0, 10 epochs, using the fast input pipeline.
+
+| Stage | Runtime | Hardware / job |
+| --- | ---: | --- |
+| Training, 10 epochs | **6h 41m 07s** | One H100 / 307146 |
+| Test evaluation, once | **4m 39s** | One H100 / 307147 |
+| Combined allocation time | **6h 45m 46s** | Excludes queue wait and preprocessing |
+
+Both jobs completed successfully; runtimes were rechecked with Slurm accounting on 2026-10-08.
+
+## Completed experiment and convergence
+
+Best validation AP was **71.0 at epoch 9** (stored as zero-based epoch 8). The test result above uses that checkpoint. The latest resumable checkpoint is after epoch 10. There are no additional training experiments or multi-seed results to compare here; the other jobs were performance diagnostics.
+
+Updated 2026-10-08. This reproduction is complete for our reporting scope: one 10-epoch, seed-0 run with the released CSAM + PRGCN model, evaluated once on the test set using the best-validation checkpoint. We are stopping here rather than extending to 200 epochs. This is a close short-run reproduction, not a multi-seed or full-duration reproduction.
 
 ![Training loss and validation AP](reproduction/evidence/training_curves.png)
 

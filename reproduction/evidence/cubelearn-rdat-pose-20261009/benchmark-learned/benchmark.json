@@ -1,0 +1,14 @@
+{
+  "mean_step_seconds": 0.18914365395903587,
+  "median_step_seconds": 0.18632539361715317,
+  "p95_step_seconds": 0.2074025308713317,
+  "samples_per_second": 42.29589432449377,
+  "train_epoch_seconds": 2737.8543910570443,
+  "validation_step_seconds": 0.080345643684268,
+  "epoch_with_validation_seconds": 2879.3987798597664,
+  "max_memory_bytes": 5394860544,
+  "steps": 60,
+  "validation_steps": 30,
+  "last_loss": 0.03406516835093498,
+  "caveat": "Short real-data benchmark, including optimizer steps; extrapolated validation includes 15 seconds for metrics/checkpoint overhead. No checkpoint retained; full-epoch timing may differ."
+}

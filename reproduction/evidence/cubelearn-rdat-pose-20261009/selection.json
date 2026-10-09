@@ -1,0 +1,13 @@
+{
+  "benchmark_job": "319297",
+  "selected_epochs": 7,
+  "epoch_seconds": 2879.3987798597664,
+  "estimated_training_hours": 5.598830960838435,
+  "estimated_test_minutes": 2.359073146712035,
+  "training_time_limit": "06:30:00",
+  "test_time_limit": "00:20:00",
+  "parameters": 51040862,
+  "scope": "One learned seed-0 run; no full fixed-DFT training submitted",
+  "status": "prepared-command-not-submitted",
+  "caveat": "Extrapolated from short benchmark; excludes queue wait; full-epoch I/O may differ."
+}

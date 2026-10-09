@@ -42,7 +42,7 @@ Initial 64-GiB jobs repeatedly evicted raw-data file-cache pages. We resumed fro
 
 [Six fixed validation examples](reproduction/evidence/cubelearn-pose-20261008/validation_poses.png) show labels and predictions without camera images; they are qualitative examples, not additional test measurements. [Exact results and checkpoint hashes](reproduction/evidence/cubelearn-pose-20261008/results.json), [pilot selection](reproduction/evidence/cubelearn-pose-20261008/continuation-selection.json), and per-arm histories/logs are retained. Verification covered raw decoding/antenna mapping, all 600 temporal windows, DFT initialization and gradients, paired initial predictions, annotation equality, unchanged source hashes, finite checkpoints, best-validation selection and all 12,600 unique test image IDs.
 
-[Experiment design and fresh-run commands](experiments/cubelearn_pose/EXPERIMENT.md) include the required CubeLearn fork commit and environment setup. Training/evaluation sources are frozen at their recorded hashes. Existing best/latest checkpoints, optimizer/RNG state and source snapshots remain under ignored `local/cubelearn-pose-20261008/`; both arms can resume without restarting. Raw recordings remain at their unchanged configured location. The original HuPR pipeline and CubeLearn HAR model files were not changed.
+[Experiment design and fresh-run commands](experiments/cubelearn_pose/EXPERIMENT.md) include the required CubeLearn fork commit and environment setup. Training/evaluation sources are frozen at their recorded hashes. Existing best/latest checkpoints, optimizer/RNG state and source snapshots remain under ignored `local/cubelearn-pose-20261008/`; both arms can resume without restarting. Raw recordings now live at `/mnt/weka/fgeikyan/rf-datas/hupr/`. The original raw-data path remains a compatibility link: frozen experiment sources and manifests retain their recorded paths so the epoch-10 checkpoints can still resume with unchanged source/configuration checks. The original HuPR pipeline and CubeLearn HAR model files were not changed.
 
 ## Original HuPR experiment and convergence
 
@@ -97,12 +97,14 @@ The builder preserves normalization arithmetic and checks exact equality against
 
 ## Existing cluster assets and commands
 
-Only `hupr/` remains as an active top-level HuPR folder. Historical campaigns, checkpoints, environments, preprocessing and data are under `../old/hupr-experiments/`. The joint HuPR/RF-CRATE attempt was moved intact, retaining its RF-CRATE assets too. Nothing was deleted. Historical scripts contain their old absolute paths and are provenance records; use this fork's launcher now.
+Only `hupr/` remains as an active top-level HuPR folder. Historical campaigns, checkpoints and environments are under `../old/hupr-experiments/`. Dataset storage was consolidated on 2026-10-09: raw data is under `/mnt/weka/fgeikyan/rf-datas/hupr/`, and derived data is under its `derived/` folder. Old data locations are compatibility links, not additional copies. The joint HuPR/RF-CRATE attempt was moved intact, retaining its RF-CRATE assets too. Nothing was deleted. Historical scripts contain their old absolute paths and are provenance records; use this fork's launcher now.
 
 Ignored local links keep the current setup usable:
 
-- `local/data`: pilot annotations and generated ground truth.
-- `local/normalized-cache`: existing normalized cache.
+- `local/data` → `/mnt/weka/fgeikyan/rf-datas/hupr/derived/pose-ground-truth`: annotations and generated ground truth.
+- `local/normalized-cache` → `/mnt/weka/fgeikyan/rf-datas/hupr/derived/normalized-cache`: existing normalized cache.
+- `local/raw-data` → `/mnt/weka/fgeikyan/rf-datas/hupr`: original ADC, frames and annotations.
+- Released preprocessed HuPR maps: `/mnt/weka/fgeikyan/rf-datas/hupr/derived/preprocessed`.
 - `local/env-hupr`: preserved Python environment. Invoke its interpreter directly; historical activation scripts contain old prefixes.
 - `logs`: original pilot checkpoints and predictions, including `release-seed0/model_best.pth` and `resume.pth`.
 
